@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: 讨论与想法
-    url: https://github.com/OWNER/REPO/discussions
-    about: 不确定算不算 Issue？先去 Discussions 聊聊（请把 OWNER/REPO 换成实际地址）
+    url: https://github.com/qianxialeo/maies-ustc/discussions
+    about: 不确定算不算 Issue？先去 Discussions 聊聊

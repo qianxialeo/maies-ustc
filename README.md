@@ -13,8 +13,8 @@
 ## 现在就能玩
 
 ```bash
-git clone <本仓库地址>
-cd <仓库目录>
+git clone https://github.com/qianxialeo/maies-ustc.git
+cd maies-ustc
 python -m pip install -r requirements.txt
 python scripts/build.py --serve      # 构建并打开 http://127.0.0.1:8000
 ```
