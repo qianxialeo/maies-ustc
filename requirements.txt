@@ -1,2 +1,2 @@
 Pillow>=10.0
-shapely>=2.0
+shapely>=2.2.0
