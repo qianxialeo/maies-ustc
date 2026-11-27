@@ -103,6 +103,15 @@ source/bundle.py ──► 中科大像素漫游.html（内嵌全部 PNG 与 sce
 欢迎提交 Issue 与 PR。开始之前请读 [CONTRIBUTING.md](CONTRIBUTING.md)：
 分支命名、提交信息、评审流程、以及“不要提交生成物”的规矩都写在那里。
 
+仓库初始化的团队配置（标签、里程碑、合并策略、分支保护、Pages）可以用脚本一次配好，
+见 [docs/team-setup.md](docs/team-setup.md)：
+
+```bash
+export GITHUB_TOKEN=ghp_xxx                       # 只需要 repo 权限
+python scripts/setup_github.py --dry-run          # 预览
+python scripts/setup_github.py --pages --protect  # 执行
+```
+
 ```bash
 git switch -c feat/xiaomo-npc
 # 改 source/game.html 或 source/make.py
