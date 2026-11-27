@@ -1,0 +1,6 @@
+# 默认要求一位维护者 review；请把 @your-handle 换成你自己的 GitHub 账号
+* @your-handle
+
+# 地图生成器与游戏外壳改动较大，建议双人 review
+/source/make.py    @your-handle
+/source/game.html  @your-handle

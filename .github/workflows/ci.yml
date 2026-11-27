@@ -1,0 +1,73 @@
+# CI：每次推送与 PR 都完整构建一遍，确保 main 随时可出包
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 语法检查
+        run: python -m compileall -q source scripts
+
+      - name: 生成图层与网页
+        run: |
+          python source/make.py
+          python source/bundle.py
+
+      - name: 校验产物体积与关键字段
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root = pathlib.Path('.')
+          scene = json.loads((root / 'art/scene.json').read_text(encoding='utf-8'))
+          html = (root / '中科大像素漫游.html').stat().st_size
+          print('scene', scene['w'], 'x', scene['h'],
+                'objects', len(scene['objects']), 'marks', len(scene['marks']))
+          assert scene['w'] > 6000 and scene['h'] > 2500, '地图尺寸异常'
+          assert len(scene['sprites']) > 80, '精灵数量异常'
+          assert len(scene['marks']) >= 14, '地标数量异常'
+          assert 1_000_000 < html < 20_000_000, 'HTML 体积异常'
+          print('OK, html = %.2f MB' % (html / 1048576))
+          PY
+
+      - name: 打包
+        run: python scripts/package.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: maies-3campus
+          path: dist/*.zip
+          retention-days: 30
+
+      - name: 保存全图便于在 PR 里查看
+        uses: actions/upload-artifact@v4
+        with:
+          name: map-preview
+          path: |
+            中科大全图.png
+            West-Lakeside.png
+          retention-days: 14
