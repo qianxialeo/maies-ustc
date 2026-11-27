@@ -57,14 +57,14 @@ jobs:
       - name: 打包
         run: python scripts/package.py
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: maies-3campus
           path: dist/*.zip
           retention-days: 30
 
       - name: 保存全图便于在 PR 里查看
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: map-preview
           path: |
