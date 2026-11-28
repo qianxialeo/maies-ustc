@@ -33,9 +33,9 @@ jobs:
       - name: 语法检查
         run: python -m compileall -q source scripts
 
-      - name: 生成图层与网页
+      - name: 生成图层、检查东区水面通行并打包网页
         run: |
-          python source/make.py
+          python tests/test_east_ponds.py -v
           python source/bundle.py
 
       - name: 校验产物体积与关键字段
