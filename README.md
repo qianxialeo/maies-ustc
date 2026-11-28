@@ -56,7 +56,7 @@ python scripts/build.py --serve      # 构建并打开 http://127.0.0.1:8000
 
 ```
 data/campus3.osm
-      │  （投影：正北向上，东西 3.1 px/m，南北 ×0.78，立面 ×1.16 ≈ 51° 俯角）
+      │  （局部米制坐标 → 固定斜视角，北方接近画面上方）
       ▼
 source/make.py ──► art/ground.png  地面层（草地/道路/水系/田径场/球场/墙基/阴影）
                ├─► art/nav.png     1bit 通行掩码（含斑马线与地下通道）

@@ -8,10 +8,12 @@
 ```bash
 python -m pip install -r requirements-dev.txt
 python scripts/build.py --serve     # 构建 + 本地预览
-python -m ruff check --select E9,F source scripts   # 与 CI 同款的最小检查
+python -m compileall -q source scripts              # CI 的语法检查
 ```
 
 构建约 10 秒；产物在 `art/`、`中科大像素漫游.html` 等位置，均已在 `.gitignore` 中。
+
+改动水域或通行掩码时，可运行 `python tests/test_east_ponds.py -v`。该检查会重新生成图层，然后检查眼镜湖、桃花坞的水面及亭岛步桥。CI 接着运行 `python source/bundle.py` 打包网页。
 
 ## 1. 分支与合并
 

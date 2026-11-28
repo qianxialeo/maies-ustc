@@ -1,5 +1,6 @@
 from PIL import Image,ImageDraw,ImageFont,ImageChops
-from shapely.geometry import Polygon,Point,LineString,box,MultiPolygon
+from shapely import build_area
+from shapely.geometry import Polygon,Point,LineString,MultiLineString,box,MultiPolygon
 from shapely.geometry.polygon import orient
 from shapely.affinity import affine_transform,translate,scale,rotate
 from shapely.ops import unary_union
@@ -80,6 +81,27 @@ def stash(im,name):
 def obj(name,x,y,depth):objs.append([name,x,y,round(depth)])
 FIELD_IDS={'259869887','367584042','259869888','298467057','298467058'}
 COURT_IDS=set()
+
+# A pond can span several ways. Closed linework preserves islands even when
+# OSM splits a ring across members or stores its ways in reverse order.
+def collect_water_relations(boundary):
+ ponds={}
+ member_ids=set()
+ for relation in root.findall('relation'):
+  t=tags(relation)
+  if t.get('type')!='multipolygon' or t.get('natural')!='water':continue
+  refs=[m.get('ref') for m in relation.findall('member') if m.get('type')=='way' and m.get('role','') in ('outer','inner','')]
+  if not refs or any(ref not in ways for ref in refs):continue
+  lines=MultiLineString([pts(ways[ref]) for ref in refs])
+  if not lines.boundary.is_empty:continue
+  pond=build_area(lines)
+  if pond.is_empty or not boundary.covers(pond.representative_point()):continue
+  ponds[relation.get('id')]=pond
+  member_ids.update(refs)
+ return ponds,member_ids
+
+east_ponds,east_pond_members=collect_water_relations(_cp[2])
+east_pond_water=unary_union(list(east_ponds.values()))
 for i,w in ways.items():
  t=tags(w);v=pts(w)
  if len(v)<2:continue
@@ -94,7 +116,7 @@ for i,w in ways.items():
  p=Polygon(v).buffer(0)
  if p.is_empty or not camp.covers(p.representative_point()):continue
  if t.get('building'):structures.append((i,p,t))
- elif t.get('natural')=='water':water.append(p)
+ elif t.get('natural')=='water' and i not in east_pond_members:water.append(p)
  elif t.get('highway')=='pedestrian' and t.get('area')=='yes':plazas.append(p)
  elif i in FIELD_IDS:continue
  elif t.get('leisure') in ['pitch','track']:COURT_IDS.add(i)
@@ -110,14 +132,30 @@ for l,w in sorted(roads,key=lambda a:-a[1]):
   for dd in range(0,int(l.length)-1,15):
    q0=l.interpolate(dd);q1=l.interpolate(min(dd+8,l.length))
    D.line([tr(q0.x,q0.y),tr(q1.x,q1.y)],fill='#e6dfc6',width=1)
-water.append(lake);wg=px(unary_union(water));wm=Image.new('L',(W,H));paint(wg,255,ImageDraw.Draw(wm),0)
-fillm(wg.buffer(4),'#738f7d');fillm(wg,'#548e88')
-for s,c in [(20,'#66a292'),(10,'#7eae98'),(4,'#a4b99a')]:overlay(wg.difference(wg.buffer(-s)),c)
-for i in range(int(6100*AREA)):
- bx,by,bX,bY=wg.bounds;x=R.randint(int(bx),int(bX));y=R.randint(int(by),int(bY))
- if not wm.getpixel((x,y)):continue
- length=R.randint(2,13);D.line((x,y,x+length,y),fill=R.choice(['#72a99c','#85b7a6','#599592','#a5c4a6']))
- if R.random()<.2:D.line((x-3,y+1,x+2,y+1),fill='#83b3a0')
+def paint_water(surface,rng,trials):
+ wm=Image.new('L',(W,H))
+ paint(surface,255,ImageDraw.Draw(wm),0)
+ fillm(surface.buffer(4),'#738f7d')
+ fillm(surface,'#548e88')
+ for width,color in [(20,'#66a292'),(10,'#7eae98'),(4,'#a4b99a')]:
+  overlay(surface.difference(surface.buffer(-width)),color)
+ x0,y0,x1,y1=map(int,surface.bounds)
+ for _ in range(trials):
+  x=rng.randint(x0,x1);y=rng.randint(y0,y1)
+  if not wm.getpixel((x,y)):continue
+  length=rng.randint(2,13)
+  D.line((x,y,x+length,y),fill=rng.choice(['#72a99c','#85b7a6','#599592','#a5c4a6']))
+  if rng.random()<.2:D.line((x-3,y+1,x+2,y+1),fill='#83b3a0')
+
+water.append(lake)
+surface=px(unary_union(water))
+trials=int(6100*AREA)
+paint_water(surface,R,trials)
+# Local seeds add pond detail without moving existing scenery elsewhere.
+ripple_density=trials/box(*surface.bounds).area
+for relation_id,pond in east_ponds.items():
+ pond_surface=px(pond)
+ paint_water(pond_surface,random.Random(int(relation_id)),round(box(*pond_surface.bounds).area*ripple_density))
 # 建筑落地影子：太阳在西北，影子压向东南；塔楼影子更长。
 def floors_of(i,p,t):
  lv=t.get('building:levels','');return int(lv) if lv.isdigit() else (2 if p.area<800 else 4)
@@ -676,7 +714,11 @@ def plant(x,y):
  pt=Point(x,y);cell=(round(x/6),round(y/6))
  if cell in taken or not clear.covers(pt):return
  if any(p.distance(pt)<6 for i,p,t in structures if i in ['1135360042','259873139']):return
- taken.add(cell);sx,sy=tr(x,y);j=R.randrange(16);k=[.62,.72,.82,.88,.66][j%5];obj('tree'+str(j),sx-round(38*k),sy-round(80*k),sy)
+ # Reserve the candidate and draw its variant before testing the new water:
+ # changes to a local shoreline must not reshuffle other campuses' trees.
+ taken.add(cell);j=R.randrange(16)
+ if east_pond_water.covers(pt):return
+ sx,sy=tr(x,y);k=[.62,.72,.82,.88,.66][j%5];obj('tree'+str(j),sx-round(38*k),sy-round(80*k),sy)
 for l,w in roads:
  if l.geom_type!='LineString' or l.length<12:continue
  for dist in range(5,int(l.length)-3,R.randint(11,17)):
@@ -684,7 +726,7 @@ for l,w in roads:
   for s in [-1,1]:
    x=pt.x+dy*(w/2+2.8)*s;y=pt.y-dx*(w/2+2.8)*s
    if R.random()<.51:plant(x,y)
-   elif R.random()<.26:
+   elif R.random()<.26 and not east_pond_water.covers(Point(x,y)):
     sx,sy=tr(x,y);obj('lamp',sx-15,sy-30,sy)
 for j in range(7200):
  x=R.uniform(-845,1210);y=R.uniform(-625,405)
@@ -701,17 +743,19 @@ for j in range(530):
  sx,sy=tr(x,y)
  for no in [0,2,4]:D.line((sx+no,sy,sx+no-1,sy-R.randint(2,6)),fill=R.choice(['#6c8968','#8f9d6d','#aab782']))
 # Collision mask and safe arrival points are derived from the same shoreline and outlines.
-TUNNEL=LINK_B.buffer(5.0);bridge=unary_union([l.buffer(w*.6) for l,w,i in bridges]).union(TUNNEL);walk=camp.buffer(-1).difference(unary_union([*geometry,*water])).union(bridge).buffer(-.24)
+TUNNEL=LINK_B.buffer(5.0);bridge=unary_union([l.buffer(w*.6) for l,w,i in bridges]).union(TUNNEL);walk=camp.buffer(-1).difference(unary_union([*geometry,*water,east_pond_water])).union(bridge).buffer(-.24)
 nav=Image.new('1',(W,H));paint(px(walk),1,ImageDraw.Draw(nav),0);nav.save(out/'nav.png')
 marks=[]
 from shapely.ops import nearest_points
-for label,x,y,about in [('九曲桥',-480,150,'曲折的桥面连接湖心岛与西岸，岸线与岛按地图轮廓绘制。'),('西区 1958',-393,124,'沿水岸可以看到外挑的平台、深色窗框和低矮的白墙。'),('西区图书馆',-300,145,'低裙房托起赭色塔楼，浅色顶带和屋顶标志勾出天际线。'),('第三教学楼',-525,53,'A、B 楼的楼翼折转相接，邻近 C 楼较低。'),('同步辐射实验室',-728,-221,'实验大厅位于西区西南部。屋顶细节为游戏化示意。'),('西区学生食堂',-620,302,'食堂及学生宿舍位于北侧生活区。'),('西区田径场',-751.3,147.7,'400 米八道塑胶跑道环抱人造草皮球场；北端铅球区，南端跳远沙坑。'),('肥西路校门',-50,78,'西区与中区隔肥西路相望，斑马线两侧各有一道校门。'),('中区学生活动中心',55,47,'中区北侧的活动中心，镜渊最早的测试点之一。'),('金寨路地下通道',610,84,'中区与东区之间的地下通道，下穿金寨路，灯带常年不熄。'),('东区图书馆',840,-106,'东区中轴上的图书馆，六层，阅览室朝南。'),('第一教学楼',764,105,'东区最老的教学楼之一，浅墙、长窗与灰檐。'),('东区学生食堂',968,-101,'东区食堂，通高玻璃幕墙。'),('礼堂',723,-418,'东区礼堂，坡屋面藏在树里。')]:
+for label,x,y,about in [('九曲桥',-480,150,'曲折的桥面连接湖心岛与西岸，岸线与岛按地图轮廓绘制。'),('西区 1958',-393,124,'沿水岸可以看到外挑的平台、深色窗框和低矮的白墙。'),('西区图书馆',-300,145,'低裙房托起赭色塔楼，浅色顶带和屋顶标志勾出天际线。'),('第三教学楼',-525,53,'A、B 楼的楼翼折转相接，邻近 C 楼较低。'),('同步辐射实验室',-728,-221,'实验大厅位于西区西南部。屋顶细节为游戏化示意。'),('西区学生食堂',-620,302,'食堂及学生宿舍位于北侧生活区。'),('西区田径场',-751.3,147.7,'400 米八道塑胶跑道环抱人造草皮球场；北端铅球区，南端跳远沙坑。'),('肥西路校门',-50,78,'西区与中区隔肥西路相望，斑马线两侧各有一道校门。'),('中区学生活动中心',55,47,'中区北侧的活动中心，镜渊最早的测试点之一。'),('金寨路地下通道',610,84,'中区与东区之间的地下通道，下穿金寨路，灯带常年不熄。'),('东区图书馆',840,-106,'东区中轴上的图书馆，六层，阅览室朝南。'),('第一教学楼',764,105,'一教北侧是眼镜湖，樱花大道从两片水面之间经过。'),('东区学生食堂',968,-101,'东区食堂，通高玻璃幕墙。'),('礼堂',723,-418,'东区礼堂，坡屋面藏在树里。')]:
  pt=nearest_points(walk.buffer(-1),Point(x,y))[0];sx,sy=tr(pt.x,pt.y);marks.append(dict(name=label,x=sx,y=sy,about=about))
 lb=px(lake).bounds
 lcx,lcy=(lb[0]+lb[2])/2,(lb[1]+lb[3])/2
 lw,ls=lake.centroid.x,lake.centroid.y
 hx,hy=tr(lake.centroid.x,lake.centroid.y)
 lakeside=[max(0,round(hx-320)),max(0,round(hy-165)),min(W,round(hx+320)),min(H,round(hy+165))]
-bg.save(out/'ground.png',optimize=True);objs.sort(key=lambda o:o[3]);print('scene',len(structures),'buildings,',len(taken),'trees',W,H,flush=True)
+bg.save(out/'ground.png',optimize=True);objs.sort(key=lambda o:o[3])
+tree_count=sum(1 for item in objs if item[0].startswith('tree'))
+print('scene',len(structures),'buildings,',tree_count,'trees',W,H,flush=True)
 print('marks',[m['name'] for m in marks],'lakeside',lakeside,flush=True)
 (out/'scene.json').write_text(json.dumps(dict(w=W,h=H,sprites=assets,objects=objs,marks=marks,buildings=len(structures),lakeside=lakeside),ensure_ascii=False,separators=(',',':')),encoding='utf-8')

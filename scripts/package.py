@@ -16,9 +16,14 @@ FILES = [
     "West-Lakeside.png",
     "使用说明.md",
     "README.md",
+    "LICENSE",
     "LICENSES.md",
+    "CONTRIBUTING.md",
+    "Makefile",
+    "requirements.txt",
+    "requirements-dev.txt",
 ]
-DIRS = ["art", "source", "data", "docs"]
+DIRS = ["art", "source", "data", "docs", "scripts", "tests"]
 
 
 def main() -> None:
@@ -33,7 +38,7 @@ def main() -> None:
             z.write(ROOT / name, name)
         for d in DIRS:
             for p in sorted((ROOT / d).rglob("*")):
-                if p.is_file():
+                if p.is_file() and "__pycache__" not in p.parts and p.suffix not in {".pyc", ".pyo"}:
                     z.write(p, p.relative_to(ROOT).as_posix())
     print(f"[package] {out.relative_to(ROOT)}  {out.stat().st_size / 1048576:.2f} MB")
 

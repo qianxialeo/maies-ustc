@@ -1,0 +1,385 @@
+{
+  "collection": "中国科学技术大学东区与中区室外复原参考",
+  "collected_on": "2026-11-27",
+  "images": [
+    {
+      "id": "G01",
+      "name": "东西中校区位置与总平面",
+      "kind": "历史底图",
+      "date": "校方校园地图，成图日期未标。",
+      "use": "对照校区位置、主路、主要楼群和水面；逐栋轮廓另作核对。",
+      "page": "https://www.ustc.edu.cn/info/1009/1036.htm",
+      "origin": "中国科学技术大学 · 校园地图",
+      "asset_url": "https://www.ustc.edu.cn/__local/E/38/BD/1E3C1FCB91DBB0B5F992FB4DADF_351A881F_124B9C0.jpg",
+      "dimensions": [
+        8550,
+        6955
+      ],
+      "exif_original": null,
+      "sha256": "4b3f51fb5c1d4ac0e0476db81e240ce919c3a73a8f658f2d4d9a383bc97e3e30",
+      "file": "G01-东西中校区位置与总平面.jpg"
+    },
+    {
+      "id": "E01",
+      "name": "金寨路校门",
+      "kind": "实景",
+      "date": "招办相册，拍摄日未标。",
+      "use": "石材门框、门楣和临街尺度。",
+      "page": "https://zsb.ustc.edu.cn/xysj/list.htm",
+      "origin": "中国科学技术大学招生办公室 · 校园风光",
+      "asset_url": "https://zsb.ustc.edu.cn/_upload/article/images/a0/67/df1e62c54ec58f102027fcf3a970/d9593843-804f-4350-873f-b1f157d058b0.jpg",
+      "dimensions": [
+        1080,
+        720
+      ],
+      "exif_original": null,
+      "sha256": "a13e9bd1c4055e15c8ed7c525ba5e46b2af063eb70757dcfa465095f72bbe514",
+      "file": "E01-金寨路校门.jpg"
+    },
+    {
+      "id": "E02",
+      "name": "老北门",
+      "kind": "实景",
+      "date": "招办相册，拍摄日未标。",
+      "use": "门楣轮廓和题字，勿与金寨路校门混用。",
+      "page": "https://zsb.ustc.edu.cn/xysj/list.htm",
+      "origin": "中国科学技术大学招生办公室 · 校园风光",
+      "asset_url": "https://zsb.ustc.edu.cn/_upload/article/images/92/3c/75b5a60d4f65b53d0f103e7dcb87/197597a2-d4b2-4aaf-83ae-038c167df87e.jpg",
+      "dimensions": [
+        2045,
+        1150
+      ],
+      "exif_original": null,
+      "sha256": "d05e293cd309326da9327224f7160c020a2e79f215d72547cc14ffd98b8f0f64",
+      "file": "E02-老北门.jpg"
+    },
+    {
+      "id": "E03",
+      "name": "樱花大道",
+      "kind": "实景",
+      "date": "图集发布于 2022-02-23，拍摄日未标。",
+      "use": "双侧树冠、人行轴线与季节颜色。",
+      "page": "https://sz.ustc.edu.cn/wdxz_show/61.html",
+      "origin": "中国科大苏州高等研究院 · 校园图集",
+      "asset_url": "https://sz.ustc.edu.cn/upload/202202/23/202202231537477199.jpg",
+      "dimensions": [
+        2555,
+        1264
+      ],
+      "exif_original": null,
+      "sha256": "f40564e7084aad58f65e518a5eae2e66b811b05c91ee1b55bef6cb437c0e927b",
+      "file": "E03-樱花大道.jpg"
+    },
+    {
+      "id": "E04",
+      "name": "眼镜湖",
+      "kind": "实景",
+      "date": "图集发布于 2022-02-23，拍摄日未标。",
+      "use": "湖岸植被、水面及周边树线。",
+      "page": "https://sz.ustc.edu.cn/wdxz_show/61.html",
+      "origin": "中国科大苏州高等研究院 · 校园图集",
+      "asset_url": "https://sz.ustc.edu.cn/upload/202202/23/202202231536326627.jpg",
+      "dimensions": [
+        2560,
+        1272
+      ],
+      "exif_original": null,
+      "sha256": "914fc682aa6aedd356e9d3f25e6770192d36b70bacc610c9ef384d49aadee409",
+      "file": "E04-眼镜湖.jpg"
+    },
+    {
+      "id": "E05",
+      "name": "一鉴亭与曲廊",
+      "kind": "实景",
+      "date": "校报刊期 2026-04-05，拍摄日未标。",
+      "use": "对照东湖亭顶和转折回廊与岸的连接。",
+      "page": "https://zgkdb.ustc.edu.cn/ndetail/9977",
+      "origin": "中国科大报 · 代蕊摄",
+      "asset_url": "https://zgkdb.ustc.edu.cn/uploadfile/2026/0417/20260417154607281240.jpg",
+      "dimensions": [
+        400,
+        267
+      ],
+      "exif_original": null,
+      "sha256": "3bc790dbbfa6eedd367856de55592068ebd8d42ee1252134a1e5047c1b32549c",
+      "file": "E05-一鉴亭与曲廊.jpg"
+    },
+    {
+      "id": "E06",
+      "name": "一教红墙",
+      "kind": "历史实景",
+      "date": "2011 年 10 月校园报道，单张拍摄日未标。",
+      "use": "砖墙、窗列、转角与常绿树遮挡。",
+      "page": "https://business.ustc.edu.cn/2011/1026/c28419a526436/page.htm",
+      "origin": "中国科大新闻中心摄影／管理学院刊载",
+      "asset_url": "https://business.ustc.edu.cn/_upload/article/images/10/8a/6ad6e27742f3b65f5edeb0fccbb9/W020111024389390634303.jpg",
+      "dimensions": [
+        600,
+        450
+      ],
+      "exif_original": null,
+      "sha256": "dcd22e0d42eeb96a1b98fbef442fdfa041058cbb6a290879c0691c86eb8bf422",
+      "file": "E06-一教红墙.jpg"
+    },
+    {
+      "id": "E07",
+      "name": "玉泉南路草坡",
+      "kind": "历史实景",
+      "date": "2011 年 10 月校园报道，单张拍摄日未标。",
+      "use": "图注指认为玉泉南路西侧草坡；只支持当时有缓起伏。",
+      "page": "https://business.ustc.edu.cn/2011/1026/c28419a526436/page.htm",
+      "origin": "中国科大新闻中心摄影／管理学院刊载",
+      "asset_url": "https://business.ustc.edu.cn/_upload/article/images/10/8a/6ad6e27742f3b65f5edeb0fccbb9/W020111024389390590682.jpg",
+      "dimensions": [
+        600,
+        336
+      ],
+      "exif_original": null,
+      "sha256": "9b45e76995ba565c840cf19929a3bae389b7b760951b43b601e6f0e5f891693d",
+      "file": "E07-玉泉南路草坡.jpg"
+    },
+    {
+      "id": "E08",
+      "name": "郭沫若广场轴线",
+      "kind": "实景",
+      "date": "图集发布于 2022-02-23，拍摄日未标。",
+      "use": "广场纵深、植被和水景的空间层次。",
+      "page": "https://sz.ustc.edu.cn/wdxz_show/61.html",
+      "origin": "中国科大苏州高等研究院 · 校园图集",
+      "asset_url": "https://sz.ustc.edu.cn/upload/202202/23/202202231536318112.jpg",
+      "dimensions": [
+        5184,
+        2920
+      ],
+      "exif_original": null,
+      "sha256": "0cc42b98d7941b53db80682b85d30fa6c09e54fe41879dcb11131496016dfa08",
+      "file": "E08-郭沫若广场轴线.jpg"
+    },
+    {
+      "id": "E09",
+      "name": "水上报告厅",
+      "kind": "实景",
+      "date": "图集发布于 2022-02-23，拍摄日未标。",
+      "use": "低层水平体量、窗带和邻近乔木。",
+      "page": "https://sz.ustc.edu.cn/wdxz_show/61.html",
+      "origin": "中国科大苏州高等研究院 · 校园图集",
+      "asset_url": "https://sz.ustc.edu.cn/upload/202202/23/202202231536317080.jpg",
+      "dimensions": [
+        2551,
+        1269
+      ],
+      "exif_original": null,
+      "sha256": "1b4ac564e199ade890b4fedc259ee1eae404107cfc00afe1f6f66e3468c5f302",
+      "file": "E09-水上报告厅.jpg"
+    },
+    {
+      "id": "E10",
+      "name": "图书馆入口",
+      "kind": "实景",
+      "date": "图集发布于 2022-02-23，拍摄日未标。",
+      "use": "入口凹入、柱列及相邻立面的材料对比。",
+      "page": "https://sz.ustc.edu.cn/wdxz_show/61.html",
+      "origin": "中国科大苏州高等研究院 · 校园图集",
+      "asset_url": "https://sz.ustc.edu.cn/upload/202202/23/202202231536319267.jpg",
+      "dimensions": [
+        2380,
+        1277
+      ],
+      "exif_original": null,
+      "sha256": "06094b2d88c8bcf9e25ee95c6ddf7678de0282ae15e945d131a8be37e93bdf18",
+      "file": "E10-图书馆入口.jpg"
+    },
+    {
+      "id": "E11",
+      "name": "东区1958外立面",
+      "kind": "实景",
+      "date": "招办相册，拍摄日未标。",
+      "use": "树下的低层建筑、面向庭院的开口；与西区湖畔同名地标区分。",
+      "page": "https://zsb.ustc.edu.cn/xysj/list.htm",
+      "origin": "中国科学技术大学招生办公室 · 校园风光",
+      "asset_url": "https://zsb.ustc.edu.cn/_upload/article/images/af/ec/10b4e11e4f87959e1539bb3a0c45/11163d90-726c-4891-93e3-7d0751155dac.jpg",
+      "dimensions": [
+        1080,
+        718
+      ],
+      "exif_original": null,
+      "sha256": "8836cd92fec842408ee4f79d58d1046b525f988076cd0df0d4d22ec64f705832",
+      "file": "E11-东区1958外立面.jpg"
+    },
+    {
+      "id": "E12",
+      "name": "方块科大樱花大道",
+      "kind": "数字创作",
+      "date": "2023 年夏季项目报道；制作日未标。",
+      "use": "活动展示用像素化创作先例。实景复原以 E03、E06 等作依据。",
+      "page": "https://ef.ustc.edu.cn/info/1061/1946.htm",
+      "origin": "方块科大项目组／中国科大教育基金会刊载",
+      "asset_url": "https://ef.ustc.edu.cn/__local/B/E6/82/BB2F68222279F7F22AB85B6EC92_B3FBB34A_F9EC.jpg",
+      "dimensions": [
+        1080,
+        608
+      ],
+      "exif_original": null,
+      "sha256": "9f3f11a7571c7a0c813745ede584ec9e680aae53d088b01855c62833a70f2a89",
+      "file": "E12-方块科大樱花大道.webp"
+    },
+    {
+      "id": "C01",
+      "name": "中区全景",
+      "kind": "实景",
+      "date": "图集发布于 2022-02-23，拍摄日未标。",
+      "use": "宿舍楼列、运动场地与主路的总体关系。",
+      "page": "https://sz.ustc.edu.cn/wdxz_show/61.html",
+      "origin": "中国科大苏州高等研究院 · 校园图集",
+      "asset_url": "https://sz.ustc.edu.cn/upload/202202/23/202202231537491422.jpg",
+      "dimensions": [
+        2560,
+        1292
+      ],
+      "exif_original": null,
+      "sha256": "2edcfda3dc08c37d09d97af46ef53a9042591e8dd6422e10318cb849368d4679",
+      "file": "C01-中区全景.jpg"
+    },
+    {
+      "id": "C02",
+      "name": "综合体育中心",
+      "kind": "实景",
+      "date": "招办相册；相机记录 2022-06-16。",
+      "use": "主馆屋顶、圆形体量及室外球场排列。",
+      "page": "https://zsb.ustc.edu.cn/xysj/list.htm",
+      "origin": "中国科学技术大学招生办公室 · 校园风光",
+      "asset_url": "https://zsb.ustc.edu.cn/_upload/article/images/f3/a4/fa6391324b459183a0c3beb6fdbe/09a99786-20ea-45fe-8d3f-4cb262d1d425.jpg",
+      "dimensions": [
+        5464,
+        3070
+      ],
+      "exif_original": "2022:06:16 10:38:47",
+      "sha256": "a2aede38bc20c91b0dcc73a9fc6a0d422291f6e1b9877e4111fa3865586f8af3",
+      "file": "C02-综合体育中心.jpg"
+    },
+    {
+      "id": "C03",
+      "name": "北门永怀初心雕塑",
+      "kind": "实景",
+      "date": "校方校庆回顾；相机记录 2022-04-20。",
+      "use": "雕塑组、题字和背景石面的尺度。",
+      "page": "https://lfo.ustc.edu.cn/info/1007/1939.htm",
+      "origin": "中国科大对外联络与基金事务处",
+      "asset_url": "https://lfo.ustc.edu.cn/__local/D/D5/7A/EC21BB144EF32106FF3AC197A0F_B3742B9C_3591E.jpg",
+      "dimensions": [
+        1080,
+        682
+      ],
+      "exif_original": "2022:04:20 17:30:29",
+      "sha256": "20cd1df3133ec8c9ed9b06236fbb133b97bcbdb58d964fa94d3d08fb12963cd3",
+      "file": "C03-北门永怀初心雕塑.webp"
+    },
+    {
+      "id": "C04",
+      "name": "艺术教学中心入口标识",
+      "kind": "实景",
+      "date": "相机记录 2022-06-13，早于同年 9 月正式启用。",
+      "use": "入口外墙、转角雨棚和标识，图中只覆盖局部。",
+      "page": "https://lfo.ustc.edu.cn/info/1007/1939.htm",
+      "origin": "中国科大对外联络与基金事务处",
+      "asset_url": "https://lfo.ustc.edu.cn/__local/5/68/72/37495388484D91B98C9FC5F9BB5_F6E57652_139A0.jpg",
+      "dimensions": [
+        1080,
+        720
+      ],
+      "exif_original": "2022:06:13 17:08:44",
+      "sha256": "381fd6a8aa6d2e463085caf40e3c672732100d8da0a5e5a737ca266dad8c1579",
+      "file": "C04-艺术教学中心入口标识.webp"
+    },
+    {
+      "id": "C05",
+      "name": "学习园地临场外观",
+      "kind": "建筑实景",
+      "date": "项目页列建成年份 2025，图像 EXIF 标作 2023-10-16。拍摄期未独立证实。",
+      "use": "上层曲面、首层退让以及绿地与体量关系。",
+      "page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu",
+      "origin": "合木建筑工作室项目稿／ArchDaily 刊载，魏溦摄",
+      "item_page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu/68a3a38807ae347bb5b598ad-zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu-zhao-pian",
+      "asset_url": "https://images.adsttc.com/media/images/68a3/a388/07ae/347b/b5b5/98ad/large_jpg/learning-center-at-the-central-campus-of-ustc-atelier-heimat_10.jpg?1755554806",
+      "dimensions": [
+        2000,
+        1500
+      ],
+      "exif_original": "2023:10:16 16:16:59",
+      "sha256": "e978ca3c2b2768106a3a6108663e9490b44acfe53842ffa270282ee192ef84e1",
+      "file": "C05-学习园地临场外观.jpg"
+    },
+    {
+      "id": "C06",
+      "name": "学习园地与下穿通道",
+      "kind": "建筑实景",
+      "date": "项目页列建成年份 2025，图像 EXIF 标作 2023-10-16。拍摄期未独立证实。",
+      "use": "从高处辨认建筑、上部地面及下穿通道的叠置。",
+      "page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu",
+      "origin": "合木建筑工作室项目稿／ArchDaily 刊载，是然建筑摄影摄",
+      "item_page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu/68a3a3d865bfe163962e3fd8-zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu-zhao-pian",
+      "asset_url": "https://images.adsttc.com/media/images/68a3/a3d8/65bf/e163/962e/3fd8/large_jpg/learning-center-at-the-central-campus-of-ustc-atelier-heimat_14.jpg?1755554827",
+      "dimensions": [
+        2000,
+        1332
+      ],
+      "exif_original": "2023:10:16 16:39:25",
+      "sha256": "1a0212a4550e318d9cb5493632c2008631940a8ad6da16d95c9918e7d49bf0a6",
+      "file": "C06-学习园地与下穿通道.jpg"
+    },
+    {
+      "id": "C07",
+      "name": "学习园地总平面",
+      "kind": "建筑师图纸",
+      "date": "合木建筑工作室，2025 年项目发表。",
+      "use": "对齐建筑占地、周围道路与场地边界。",
+      "page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu",
+      "origin": "合木建筑工作室（Heimat Architects）制图／ArchDaily 刊载",
+      "item_page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu/68a3a3de6d0f9641857582bd-zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu-zong-ping-mian-tu",
+      "asset_url": "https://images.adsttc.com/media/images/68a3/a3de/6d0f/9641/8575/82bd/large_jpg/00-site-plan-c-heimat-architects-1.jpg?1755554816",
+      "dimensions": [
+        2000,
+        1412
+      ],
+      "exif_original": null,
+      "sha256": "910c26ab6d1ae19baabf6990c3b682e8c6f7158758640d2b09bdad51ddb9323a",
+      "file": "C07-学习园地总平面.jpg"
+    },
+    {
+      "id": "C08",
+      "name": "学习园地南北剖面",
+      "kind": "建筑师图纸",
+      "date": "合木建筑工作室，2025 年项目发表。",
+      "use": "对照各层体量、地面与下穿通道的位置。",
+      "page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu",
+      "origin": "合木建筑工作室（Heimat Architects）制图／ArchDaily 刊载",
+      "item_page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu/68a3a3df07ae347bb5b598b6-zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu-pou-mian-tu",
+      "asset_url": "https://images.adsttc.com/media/images/68a3/a3df/07ae/347b/b5b5/98b6/large_jpg/03-north-south-section-c-heimat-architects-4.jpg?1755555011",
+      "dimensions": [
+        2000,
+        1225
+      ],
+      "exif_original": null,
+      "sha256": "427ed7cb672a58531e7932335b7e0a5b3da43ea2be397268ffb93c3b25bbbcae",
+      "file": "C08-学习园地南北剖面.jpg"
+    },
+    {
+      "id": "C09",
+      "name": "学习园地东西场地剖面",
+      "kind": "建筑师图纸",
+      "date": "合木建筑工作室，2025 年项目发表。",
+      "use": "核对跨越场地的地面变化；剖面只适用于图示范围。",
+      "page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu",
+      "origin": "合木建筑工作室（Heimat Architects）制图／ArchDaily 刊载",
+      "item_page": "https://www.archdaily.com/zh/1033307/zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu/68a3a3de65bfe163962e3fdc-zhong-guo-ke-xue-ji-zhu-da-xue-zhong-xiao-qu-xue-xi-yuan-di-he-mu-jian-zhu-pou-mian-tu",
+      "asset_url": "https://images.adsttc.com/media/images/68a3/a3de/65bf/e163/962e/3fdc/large_jpg/04-east-west-site-section-c-heimat-architects-5.jpg?1755554804",
+      "dimensions": [
+        2000,
+        1412
+      ],
+      "exif_original": null,
+      "sha256": "fd44a47d0da99e965a716c1a9d795f5049e238526b3d3d237f78617a5124ffd3",
+      "file": "C09-学习园地东西场地剖面.jpg"
+    }
+  ]
+}
